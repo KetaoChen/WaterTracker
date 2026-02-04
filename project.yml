@@ -24,6 +24,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.ketao.WaterTracker
         PRODUCT_NAME: WaterTracker
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: WaterTracker/WaterTracker.entitlements
     dependencies:
       - target: WaterTrackerWatch
         embed: true
@@ -48,8 +49,10 @@ targets:
     platform: iOS
     sources:
       - path: WaterTrackerWidgets
+      - path: Shared
     settings:
       base:
         INFOPLIST_FILE: WaterTrackerWidgets/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.ketao.WaterTracker.widgets
         PRODUCT_NAME: WaterTrackerWidgets
+        CODE_SIGN_ENTITLEMENTS: WaterTrackerWidgets/WaterTrackerWidgets.entitlements

@@ -29,6 +29,9 @@ final class WaterManager {
         context.insert(entry)
         todayTotal += amount
         
+        // Sync to shared container for widgets
+        saveTodayTotalToSharedContainer(total: todayTotal, goal: goal.dailyTarget)
+        
         // Haptic feedback
         #if os(iOS)
         let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -46,6 +49,8 @@ final class WaterManager {
         do {
             let entries = try context.fetch(descriptor)
             todayTotal = entries.reduce(0) { $0 + $1.amount }
+            // Sync to shared container for widgets
+            saveTodayTotalToSharedContainer(total: todayTotal, goal: goal.dailyTarget)
         } catch {
             print("Failed to fetch entries: \(error)")
             todayTotal = 0

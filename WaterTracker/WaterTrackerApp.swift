@@ -3,10 +3,16 @@ import SwiftData
 
 @main
 struct WaterTrackerApp: App {
+    let container: ModelContainer
+    
+    init() {
+        container = createSharedModelContainer()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: WaterEntry.self)
+        .modelContainer(container)
     }
 }

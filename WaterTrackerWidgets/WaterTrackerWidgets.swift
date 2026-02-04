@@ -19,12 +19,16 @@ struct Provider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (WaterWidgetEntry) -> Void) {
-        completion(WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000))
+        let data = fetchTodayTotalFromSharedContainer()
+        completion(WaterWidgetEntry(date: .now, todayTotal: data.total, goal: data.goal))
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WaterWidgetEntry>) -> Void) {
-        // TODO: Fetch actual data from shared container
-        let entry = WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000)
+        // Fetch actual data from shared container
+        let data = fetchTodayTotalFromSharedContainer()
+        let entry = WaterWidgetEntry(date: .now, todayTotal: data.total, goal: data.goal)
+        
+        // Refresh every 15 minutes
         let timeline = Timeline(entries: [entry], policy: .after(.now.addingTimeInterval(60 * 15)))
         completion(timeline)
     }
