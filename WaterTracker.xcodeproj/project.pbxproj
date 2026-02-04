@@ -11,20 +11,14 @@
 		140DF2977ECADFEF82317FE0 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		1924EC9EEA225579BE4F07E0 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */; };
 		22403B248D09A35F82AF6904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B5A66228E0E8E06642000 /* ContentView.swift */; };
-		34277DCA15823A307EED57D6 /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCADF98551400F71F79CDCD9 /* WaterManager.swift */; };
-		3862A245CBADA76D5BA0300B /* WaterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */; };
-		5466949301782976E177F87D /* WaterGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */; };
 		57707346B21EB9AEEBBAD4D4 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		5B59E00828AB2925EE4B3109 /* WaterGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */; };
 		5CF327066CF2799B739C12FB /* WaterTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7913F8DBFDC5E6B491A17 /* WaterTrackerApp.swift */; };
 		6210DFDFA26557C3C025E46F /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82C6FCD60C09D3FD0D81CB3 /* WatchContentView.swift */; };
 		7AC72783732BEC8E4990C308 /* WaterTrackerWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7C3F9B691F63B93EA04D9059 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		7E8BE2AB51E4519A5E1BAF48 /* WaterGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */; };
-		838B40E1C0518065934F3484 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */; };
 		9934198B4DBAAC9E547DDA89 /* WaterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */; };
 		A1FE644E095DBE6CE52B5A53 /* WaterTrackerWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C7D2400D748943BC7FB566 /* WaterTrackerWatchApp.swift */; };
-		B38FFECAF3889AC8B795683D /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBF84FA210B2498B8621E2 /* WaterEntry.swift */; };
 		B597F8D6D89C6E18EB898C39 /* WaterTrackerWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02754EACB18CCCBCACF595AA /* WaterTrackerWidgets.swift */; };
 		BBB8765A0E666F902A9A377D /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBF84FA210B2498B8621E2 /* WaterEntry.swift */; };
 		BC8B00A5617B6010399D5CD6 /* WaterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */; };
@@ -257,7 +251,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 			};
 			buildConfigurationList = 547717CD0F75AED414ECE22F /* Build configuration list for PBXProject "WaterTracker" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -285,12 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				838B40E1C0518065934F3484 /* ProgressRingView.swift in Sources */,
-				7C3F9B691F63B93EA04D9059 /* QuickAddButton.swift in Sources */,
-				B38FFECAF3889AC8B795683D /* WaterEntry.swift in Sources */,
-				5466949301782976E177F87D /* WaterGoal.swift in Sources */,
-				3862A245CBADA76D5BA0300B /* WaterIntents.swift in Sources */,
-				34277DCA15823A307EED57D6 /* WaterManager.swift in Sources */,
 				B597F8D6D89C6E18EB898C39 /* WaterTrackerWidgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +426,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +435,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -508,14 +497,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				INFOPLIST_OUTPUT_FORMAT = xml;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};

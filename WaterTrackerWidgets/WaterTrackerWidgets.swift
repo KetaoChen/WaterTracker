@@ -1,8 +1,8 @@
 import WidgetKit
 import SwiftUI
-import SwiftData
 
-struct WaterEntry: TimelineEntry {
+// Renamed to avoid conflict with SwiftData WaterEntry model
+struct WaterWidgetEntry: TimelineEntry {
     let date: Date
     let todayTotal: Int
     let goal: Int
@@ -14,17 +14,17 @@ struct WaterEntry: TimelineEntry {
 }
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> WaterEntry {
-        WaterEntry(date: .now, todayTotal: 1500, goal: 2000)
+    func placeholder(in context: Context) -> WaterWidgetEntry {
+        WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000)
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (WaterEntry) -> Void) {
-        completion(WaterEntry(date: .now, todayTotal: 1500, goal: 2000))
+    func getSnapshot(in context: Context, completion: @escaping (WaterWidgetEntry) -> Void) {
+        completion(WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000))
     }
     
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WaterEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WaterWidgetEntry>) -> Void) {
         // TODO: Fetch actual data from shared container
-        let entry = WaterEntry(date: .now, todayTotal: 1500, goal: 2000)
+        let entry = WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000)
         let timeline = Timeline(entries: [entry], policy: .after(.now.addingTimeInterval(60 * 15)))
         completion(timeline)
     }
@@ -51,7 +51,7 @@ struct WaterWidgetEntryView: View {
 }
 
 struct SmallWidgetView: View {
-    let entry: WaterEntry
+    let entry: WaterWidgetEntry
     
     var body: some View {
         ZStack {
@@ -76,7 +76,7 @@ struct SmallWidgetView: View {
 }
 
 struct MediumWidgetView: View {
-    let entry: WaterEntry
+    let entry: WaterWidgetEntry
     
     var body: some View {
         HStack {
@@ -99,7 +99,7 @@ struct MediumWidgetView: View {
 }
 
 struct CircularWidgetView: View {
-    let entry: WaterEntry
+    let entry: WaterWidgetEntry
     
     var body: some View {
         Gauge(value: entry.progress) {
@@ -112,7 +112,7 @@ struct CircularWidgetView: View {
 }
 
 struct RectangularWidgetView: View {
-    let entry: WaterEntry
+    let entry: WaterWidgetEntry
     
     var body: some View {
         HStack {
@@ -150,6 +150,6 @@ struct WaterWidget: Widget {
 #Preview(as: .systemSmall) {
     WaterWidget()
 } timeline: {
-    WaterEntry(date: .now, todayTotal: 500, goal: 2000)
-    WaterEntry(date: .now, todayTotal: 1500, goal: 2000)
+    WaterWidgetEntry(date: .now, todayTotal: 500, goal: 2000)
+    WaterWidgetEntry(date: .now, todayTotal: 1500, goal: 2000)
 }
