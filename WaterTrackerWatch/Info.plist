@@ -20,5 +20,7 @@
     <true/>
     <key>WKRunsIndependentlyOfCompanionApp</key>
     <true/>
+    <key>WKCompanionAppBundleIdentifier</key>
+    <string>com.ketao.WaterTracker</string>
 </dict>
 </plist>
