@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		064F3F7A55132E9371539E47 /* WaterTrackerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EA6B42EE9A17C3D8415FF4E4 /* WaterTrackerWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		09DCB8C5F1047F6DB6ED616A /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */; };
 		140DF2977ECADFEF82317FE0 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		1924EC9EEA225579BE4F07E0 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */; };
 		22403B248D09A35F82AF6904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B5A66228E0E8E06642000 /* ContentView.swift */; };
 		34277DCA15823A307EED57D6 /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCADF98551400F71F79CDCD9 /* WaterManager.swift */; };
 		3862A245CBADA76D5BA0300B /* WaterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */; };
+		5308901A25EC7F68B2391728 /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */; };
 		5466949301782976E177F87D /* WaterGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */; };
 		57707346B21EB9AEEBBAD4D4 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		5B59E00828AB2925EE4B3109 /* WaterGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */; };
@@ -30,6 +32,7 @@
 		BBB8765A0E666F902A9A377D /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBF84FA210B2498B8621E2 /* WaterEntry.swift */; };
 		BC8B00A5617B6010399D5CD6 /* WaterIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */; };
 		BD88CF37D44AB78764C23AB0 /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCADF98551400F71F79CDCD9 /* WaterManager.swift */; };
+		BEA3CE8507585D2821480D1A /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */; };
 		C3AE50D189F8A368DE02A724 /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBF84FA210B2498B8621E2 /* WaterEntry.swift */; };
 		C8A6D5813C7183D6416B6770 /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCADF98551400F71F79CDCD9 /* WaterManager.swift */; };
 		D7AF503EA25570F37460BDE1 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D36C6259EB4FFAC63C37B /* SharedContainer.swift */; };
@@ -85,6 +88,7 @@
 		108B5A66228E0E8E06642000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		13C7D2400D748943BC7FB566 /* WaterTrackerWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTrackerWatchApp.swift; sourceTree = "<group>"; };
 		1BB627BB0AA8CB35A16DA01E /* WaterIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntents.swift; sourceTree = "<group>"; };
+		27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
 		5B25B361188D71E2AD89E217 /* WaterTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTracker.entitlements; sourceTree = "<group>"; };
 		7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = WaterTrackerWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFE5C055BF9AD72EE6FBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				4DE4EA494572D06AA7F5E7A5 /* Intents */,
 				57883D39AD743D77B7AD843A /* Managers */,
 				4C1D8D82D4FF9F740BAD1E2E /* Models */,
+				395E3F4F428DFE32D54F3E67 /* Services */,
 				3F2D42F147E4FEAC6681ECCC /* Views */,
 			);
 			path = Shared;
@@ -133,6 +138,14 @@
 				034E72BD6C94F840D78BA358 /* WaterTrackerWidgets */,
 				647A666F2B6A96E5861FC73D /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		395E3F4F428DFE32D54F3E67 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3F2D42F147E4FEAC6681ECCC /* Views */ = {
@@ -297,6 +310,7 @@
 				838B40E1C0518065934F3484 /* ProgressRingView.swift in Sources */,
 				7C3F9B691F63B93EA04D9059 /* QuickAddButton.swift in Sources */,
 				EC43B9ED98BCD13E28CCA749 /* SharedContainer.swift in Sources */,
+				BEA3CE8507585D2821480D1A /* SupabaseService.swift in Sources */,
 				B38FFECAF3889AC8B795683D /* WaterEntry.swift in Sources */,
 				5466949301782976E177F87D /* WaterGoal.swift in Sources */,
 				3862A245CBADA76D5BA0300B /* WaterIntents.swift in Sources */,
@@ -313,6 +327,7 @@
 				E69D808FD753FC7604A01FFE /* ProgressRingView.swift in Sources */,
 				57707346B21EB9AEEBBAD4D4 /* QuickAddButton.swift in Sources */,
 				D7AF503EA25570F37460BDE1 /* SharedContainer.swift in Sources */,
+				09DCB8C5F1047F6DB6ED616A /* SupabaseService.swift in Sources */,
 				BBB8765A0E666F902A9A377D /* WaterEntry.swift in Sources */,
 				7E8BE2AB51E4519A5E1BAF48 /* WaterGoal.swift in Sources */,
 				9934198B4DBAAC9E547DDA89 /* WaterIntents.swift in Sources */,
@@ -328,6 +343,7 @@
 				1924EC9EEA225579BE4F07E0 /* ProgressRingView.swift in Sources */,
 				140DF2977ECADFEF82317FE0 /* QuickAddButton.swift in Sources */,
 				78C2E91D631E34360541F7FD /* SharedContainer.swift in Sources */,
+				5308901A25EC7F68B2391728 /* SupabaseService.swift in Sources */,
 				6210DFDFA26557C3C025E46F /* WatchContentView.swift in Sources */,
 				C3AE50D189F8A368DE02A724 /* WaterEntry.swift in Sources */,
 				5B59E00828AB2925EE4B3109 /* WaterGoal.swift in Sources */,

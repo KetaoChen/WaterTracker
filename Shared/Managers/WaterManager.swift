@@ -32,6 +32,15 @@ final class WaterManager {
         // Sync to shared container for widgets
         saveTodayTotalToSharedContainer(total: todayTotal, goal: goal.dailyTarget)
         
+        // Sync to Supabase (background, fire-and-forget)
+        Task {
+            do {
+                try await SupabaseService.shared.logWater(amount: amount)
+            } catch {
+                print("⚠️ Failed to sync to Supabase: \(error)")
+            }
+        }
+        
         // Haptic feedback
         #if os(iOS)
         let generator = UIImpactFeedbackGenerator(style: .medium)
