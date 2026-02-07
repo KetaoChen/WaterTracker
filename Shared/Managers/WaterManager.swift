@@ -32,10 +32,13 @@ final class WaterManager {
         // Sync to shared container for widgets
         saveTodayTotalToSharedContainer(total: todayTotal, goal: goal.dailyTarget)
         
-        // Sync to Supabase (background, fire-and-forget)
+        // Sync to Supabase and save cloudId
         Task {
             do {
-                try await SupabaseService.shared.logWater(amount: amount)
+                let cloudId = try await SupabaseService.shared.logWater(amount: amount)
+                await MainActor.run {
+                    entry.cloudId = cloudId
+                }
             } catch {
                 print("⚠️ Failed to sync to Supabase: \(error)")
             }
@@ -69,6 +72,21 @@ final class WaterManager {
     @MainActor
     func deleteEntry(_ entry: WaterEntry, context: ModelContext) {
         todayTotal -= entry.amount
+        
+        // Sync deletion to Supabase if we have cloudId
+        if let cloudId = entry.cloudId {
+            Task {
+                do {
+                    try await SupabaseService.shared.deleteEntry(id: cloudId)
+                } catch {
+                    print("⚠️ Failed to delete from Supabase: \(error)")
+                }
+            }
+        }
+        
+        // Update shared container for widgets
+        saveTodayTotalToSharedContainer(total: todayTotal, goal: goal.dailyTarget)
+        
         context.delete(entry)
     }
 }

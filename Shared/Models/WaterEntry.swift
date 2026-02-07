@@ -6,11 +6,13 @@ final class WaterEntry {
     var id: UUID
     var amount: Int // milliliters
     var timestamp: Date
+    var cloudId: String? // Supabase record ID
     
-    init(amount: Int, timestamp: Date = .now) {
+    init(amount: Int, timestamp: Date = .now, cloudId: String? = nil) {
         self.id = UUID()
         self.amount = amount
         self.timestamp = timestamp
+        self.cloudId = cloudId
     }
 }
 

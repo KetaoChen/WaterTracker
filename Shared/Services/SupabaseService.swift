@@ -17,7 +17,9 @@ actor SupabaseService {
     // MARK: - API Methods
     
     /// Log water intake to Supabase
-    func logWater(amount: Int, deviceId: String? = nil) async throws {
+    /// Returns the created record ID
+    @discardableResult
+    func logWater(amount: Int, deviceId: String? = nil) async throws -> String {
         let url = baseURL.appendingPathComponent("water_entries")
         
         var request = URLRequest(url: url)
@@ -25,7 +27,7 @@ actor SupabaseService {
         request.setValue(apiKey, forHTTPHeaderField: "apikey")
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("return=minimal", forHTTPHeaderField: "Prefer")
+        request.setValue("return=representation", forHTTPHeaderField: "Prefer")
         
         var actualDeviceId = deviceId ?? "unknown"
         #if os(iOS)
@@ -44,6 +46,37 @@ actor SupabaseService {
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            throw SupabaseError.requestFailed
+        }
+        
+        // Parse response to get the created record ID
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let entries = try decoder.decode([CloudWaterEntry].self, from: data)
+        guard let createdEntry = entries.first else {
+            throw SupabaseError.invalidResponse
+        }
+        
+        print("✅ Water logged to Supabase: \(amount)ml (id: \(createdEntry.id))")
+        return createdEntry.id
+    }
+    
+    /// Delete a water entry from Supabase
+    func deleteEntry(id: String) async throws {
+        var components = URLComponents(url: baseURL.appendingPathComponent("water_entries"), resolvingAgainstBaseURL: false)!
+        components.queryItems = [
+            URLQueryItem(name: "id", value: "eq.\(id)")
+        ]
+        
+        var request = URLRequest(url: components.url!)
+        request.httpMethod = "DELETE"
+        request.setValue(apiKey, forHTTPHeaderField: "apikey")
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        
         let (_, response) = try await URLSession.shared.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse,
@@ -51,7 +84,7 @@ actor SupabaseService {
             throw SupabaseError.requestFailed
         }
         
-        print("✅ Water logged to Supabase: \(amount)ml")
+        print("✅ Water entry deleted from Supabase: \(id)")
     }
     
     /// Fetch today's water entries from Supabase
