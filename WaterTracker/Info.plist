@@ -22,5 +22,16 @@
     <string>用于同步饮水数据到健康App</string>
     <key>NSHealthUpdateUsageDescription</key>
     <string>用于记录饮水数据到健康App</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.ketao.WaterTracker</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>watertracker</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

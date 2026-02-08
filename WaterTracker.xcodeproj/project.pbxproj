@@ -40,6 +40,7 @@
 		C8A6D5813C7183D6416B6770 /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCADF98551400F71F79CDCD9 /* WaterManager.swift */; };
 		CFBCE35157E79F73A377CA3B /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B353E72A9D20EB95ECD37F /* AuthManager.swift */; };
 		D7AF503EA25570F37460BDE1 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D36C6259EB4FFAC63C37B /* SharedContainer.swift */; };
+		DFF705451F469631D5C0B54D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5534945DCFADB938C32A27 /* Assets.xcassets */; };
 		E69D808FD753FC7604A01FFE /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */; };
 		EC43B9ED98BCD13E28CCA749 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D36C6259EB4FFAC63C37B /* SharedContainer.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		62AB5344567345A5ACFDB6F4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = WaterTrackerWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFE5C055BF9AD72EE6FBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8A5534945DCFADB938C32A27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97AC53CC8A50753E9731D4DF /* WaterTrackerWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTrackerWidgets.entitlements; sourceTree = "<group>"; };
 		986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddButton.swift; sourceTree = "<group>"; };
 		98B353E72A9D20EB95ECD37F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		4BA802B3B11532C23F5BE59B /* WaterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				8A5534945DCFADB938C32A27 /* Assets.xcassets */,
 				62AB5344567345A5ACFDB6F4 /* AuthView.swift */,
 				108B5A66228E0E8E06642000 /* ContentView.swift */,
 				83BFE5C055BF9AD72EE6FBEE /* Info.plist */,
@@ -264,6 +267,7 @@
 			buildConfigurationList = 659BB2293E42A5C8271DE8D5 /* Build configuration list for PBXNativeTarget "WaterTracker" */;
 			buildPhases = (
 				881434497D386D6675363B78 /* Sources */,
+				AB0C232A0FC93670CDF0E260 /* Resources */,
 				C568126821550A87B4E84FD7 /* Embed Foundation Extensions */,
 				1E7E7C570FDA5BEC8FACF2C2 /* Embed Watch Content */,
 			);
@@ -309,6 +313,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB0C232A0FC93670CDF0E260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF705451F469631D5C0B54D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		808C9D1F7948A12D18678606 /* Sources */ = {

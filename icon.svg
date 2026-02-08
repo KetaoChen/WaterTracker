@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4FC"/>
+      <stop offset="100%" style="stop-color:#B8DCF0"/>
+    </linearGradient>
+    <linearGradient id="drop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4FC3F7"/>
+      <stop offset="50%" style="stop-color:#29B6F6"/>
+      <stop offset="100%" style="stop-color:#0288D1"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.8)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  
+  <!-- Water Drop -->
+  <path d="M512 180 
+           C512 180 280 450 280 620 
+           C280 780 384 880 512 880 
+           C640 880 744 780 744 620 
+           C744 450 512 180 512 180 Z" 
+        fill="url(#drop)"/>
+  
+  <!-- Shine/Highlight -->
+  <ellipse cx="420" cy="520" rx="60" ry="100" fill="url(#shine)" opacity="0.6"/>
+  
+  <!-- Small bubble -->
+  <circle cx="380" cy="680" r="25" fill="rgba(255,255,255,0.4)"/>
+</svg>
