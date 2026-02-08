@@ -108,11 +108,27 @@ struct EntryRow: View {
 
 struct SettingsView: View {
     @AppStorage("dailyGoal") private var dailyGoal = 2000
+    @State private var authManager = AuthManager.shared
     
     var body: some View {
         Form {
             Section("每日目标") {
                 Stepper("\(dailyGoal) ml", value: $dailyGoal, in: 500...5000, step: 250)
+            }
+            
+            Section("账户") {
+                if let email = authManager.currentUser?.email {
+                    HStack {
+                        Text("登录账号")
+                        Spacer()
+                        Text(email)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                
+                Button("退出登录", role: .destructive) {
+                    authManager.signOut()
+                }
             }
             
             Section("关于") {

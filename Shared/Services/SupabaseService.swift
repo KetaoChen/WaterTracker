@@ -14,6 +14,22 @@ actor SupabaseService {
         URL(string: "\(projectURL)/rest/v1")!
     }
     
+    /// Get authorization header with user token if available
+    private func getAuthHeaders() async -> [String: String] {
+        var headers = [
+            "apikey": apiKey,
+            "Content-Type": "application/json"
+        ]
+        
+        if let token = await MainActor.run(body: { AuthManager.shared.getAccessToken() }) {
+            headers["Authorization"] = "Bearer \(token)"
+        } else {
+            headers["Authorization"] = "Bearer \(apiKey)"
+        }
+        
+        return headers
+    }
+    
     // MARK: - API Methods
     
     /// Log water intake to Supabase
@@ -21,12 +37,13 @@ actor SupabaseService {
     @discardableResult
     func logWater(amount: Int, deviceId: String? = nil) async throws -> String {
         let url = baseURL.appendingPathComponent("water_entries")
+        let headers = await getAuthHeaders()
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue(apiKey, forHTTPHeaderField: "apikey")
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
         request.setValue("return=representation", forHTTPHeaderField: "Prefer")
         
         var actualDeviceId = deviceId ?? "unknown"
@@ -40,10 +57,16 @@ actor SupabaseService {
         }
         #endif
         
-        let body: [String: Any] = [
+        var body: [String: Any] = [
             "amount": amount,
             "device_id": actualDeviceId
         ]
+        
+        // Add user_id if authenticated
+        if let userId = await MainActor.run(body: { AuthManager.shared.getUserId() }) {
+            body["user_id"] = userId
+        }
+        
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -72,10 +95,12 @@ actor SupabaseService {
             URLQueryItem(name: "id", value: "eq.\(id)")
         ]
         
+        let headers = await getAuthHeaders()
         var request = URLRequest(url: components.url!)
         request.httpMethod = "DELETE"
-        request.setValue(apiKey, forHTTPHeaderField: "apikey")
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
         
         let (_, response) = try await URLSession.shared.data(for: request)
         
@@ -95,15 +120,23 @@ actor SupabaseService {
         let startOfDayString = isoFormatter.string(from: startOfDay)
         
         var components = URLComponents(url: baseURL.appendingPathComponent("water_entries"), resolvingAgainstBaseURL: false)!
-        components.queryItems = [
+        var queryItems = [
             URLQueryItem(name: "created_at", value: "gte.\(startOfDayString)"),
             URLQueryItem(name: "order", value: "created_at.desc")
         ]
         
+        // Filter by user_id if authenticated
+        if let userId = await MainActor.run(body: { AuthManager.shared.getUserId() }) {
+            queryItems.append(URLQueryItem(name: "user_id", value: "eq.\(userId)"))
+        }
+        components.queryItems = queryItems
+        
+        let headers = await getAuthHeaders()
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
-        request.setValue(apiKey, forHTTPHeaderField: "apikey")
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
@@ -131,12 +164,14 @@ struct CloudWaterEntry: Codable {
     let createdAt: Date
     let amount: Int
     let deviceId: String?
+    let userId: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case createdAt = "created_at"
         case amount
         case deviceId = "device_id"
+        case userId = "user_id"
     }
 }
 

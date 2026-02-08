@@ -56,3 +56,4 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.ketao.WaterTracker.widgets
         PRODUCT_NAME: WaterTrackerWidgets
         CODE_SIGN_ENTITLEMENTS: WaterTrackerWidgets/WaterTrackerWidgets.entitlements
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: APPEXTENSION
