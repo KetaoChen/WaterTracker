@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		064F3F7A55132E9371539E47 /* WaterTrackerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EA6B42EE9A17C3D8415FF4E4 /* WaterTrackerWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		064F3F7A55132E9371539E47 /* WaterTracker Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EA6B42EE9A17C3D8415FF4E4 /* WaterTracker Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		09DCB8C5F1047F6DB6ED616A /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */; };
 		140DF2977ECADFEF82317FE0 /* QuickAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */; };
 		1924EC9EEA225579BE4F07E0 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */; };
@@ -69,7 +69,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				064F3F7A55132E9371539E47 /* WaterTrackerWatch.app in Embed Watch Content */,
+				064F3F7A55132E9371539E47 /* WaterTracker Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,20 +96,20 @@
 		27B3DFCE4FFD8BF9D5E0DAC5 /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
 		5B25B361188D71E2AD89E217 /* WaterTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTracker.entitlements; sourceTree = "<group>"; };
 		62AB5344567345A5ACFDB6F4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = WaterTrackerWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterTrackerWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFE5C055BF9AD72EE6FBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8A5534945DCFADB938C32A27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97AC53CC8A50753E9731D4DF /* WaterTrackerWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterTrackerWidgets.entitlements; sourceTree = "<group>"; };
 		986FE32DCD229A2284A02DF4 /* QuickAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddButton.swift; sourceTree = "<group>"; };
 		98B353E72A9D20EB95ECD37F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		9DB159053107388D9B89CFBA /* WaterTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = WaterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB159053107388D9B89CFBA /* WaterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82C6FCD60C09D3FD0D81CB3 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		BABBF84FA210B2498B8621E2 /* WaterEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterEntry.swift; sourceTree = "<group>"; };
 		CCADF98551400F71F79CDCD9 /* WaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterManager.swift; sourceTree = "<group>"; };
 		CFD7913F8DBFDC5E6B491A17 /* WaterTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterTrackerApp.swift; sourceTree = "<group>"; };
 		E54B2E065C3DAA70A6A38CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E7FECF501D91DBAF6D490A8D /* WaterGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterGoal.swift; sourceTree = "<group>"; };
-		EA6B42EE9A17C3D8415FF4E4 /* WaterTrackerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterTrackerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6B42EE9A17C3D8415FF4E4 /* WaterTracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaterTracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F698C34D764C1D1EDE55E6C9 /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
 		FD5F3BDDED5B3306A6B9DB50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB159053107388D9B89CFBA /* WaterTracker.app */,
-				EA6B42EE9A17C3D8415FF4E4 /* WaterTrackerWatch.app */,
+				EA6B42EE9A17C3D8415FF4E4 /* WaterTracker Watch App.app */,
 				7F63E264ABC74AF4E26367D9 /* WaterTrackerWidgets.appex */,
 			);
 			name = Products;
@@ -242,7 +242,7 @@
 			packageProductDependencies = (
 			);
 			productName = WaterTrackerWatch;
-			productReference = EA6B42EE9A17C3D8415FF4E4 /* WaterTrackerWatch.app */;
+			productReference = EA6B42EE9A17C3D8415FF4E4 /* WaterTracker Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 		608394A912717407A866C1F8 /* WaterTrackerWidgets */ = {
@@ -303,7 +303,6 @@
 			);
 			mainGroup = 31DFA1BDA0A4D72D1D12875C;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -402,6 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WaterTracker/WaterTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTrackerWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ketao.WaterTracker.watchkitapp;
 				PRODUCT_NAME = "WaterTracker Watch App";
@@ -431,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WaterTrackerWidgets/WaterTrackerWidgets.entitlements;
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTrackerWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTrackerWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ketao.WaterTracker.watchkitapp;
 				PRODUCT_NAME = "WaterTracker Watch App";
@@ -585,6 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WaterTracker/WaterTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -601,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = WaterTrackerWidgets/WaterTrackerWidgets.entitlements;
+				DEVELOPMENT_TEAM = 4V5K4XGPBV;
 				INFOPLIST_FILE = WaterTrackerWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
