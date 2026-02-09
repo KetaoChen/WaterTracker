@@ -17,6 +17,7 @@ final class AuthManager {
     
     private(set) var currentUser: AuthUser?
     private(set) var isLoading = false
+    private(set) var isRestoring = true
     private(set) var errorMessage: String?
     
     var isAuthenticated: Bool {
@@ -264,6 +265,7 @@ final class AuthManager {
     }
     
     private func restoreSession() async {
+        defer { isRestoring = false }
         guard let token = accessToken else { return }
         
         // Verify token by fetching user

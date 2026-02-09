@@ -65,6 +65,15 @@ struct ContentView: View {
         }
         .onAppear {
             waterManager.refreshTodayTotal(context: modelContext)
+            Task {
+                await waterManager.syncFromCloud(context: modelContext)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            waterManager.refreshTodayTotal(context: modelContext)
+            Task {
+                await waterManager.syncFromCloud(context: modelContext)
+            }
         }
     }
     

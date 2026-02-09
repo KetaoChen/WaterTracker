@@ -13,7 +13,9 @@ struct WaterTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if authManager.isAuthenticated {
+                if authManager.isRestoring {
+                    ProgressView()
+                } else if authManager.isAuthenticated {
                     ContentView()
                 } else {
                     AuthView()

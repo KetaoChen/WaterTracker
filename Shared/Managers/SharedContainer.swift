@@ -34,16 +34,17 @@ func createSharedModelContainer() -> ModelContainer {
 
 /// Reads today's water total from the shared container (for widgets)
 func fetchTodayTotalFromSharedContainer() -> (total: Int, goal: Int) {
-    guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier) else {
-        return (0, 2000)
-    }
-    
-    // Read from UserDefaults in the shared container (simpler for widgets)
     let defaults = UserDefaults(suiteName: appGroupIdentifier)
-    let total = defaults?.integer(forKey: "todayTotal") ?? 0
     let goal = defaults?.integer(forKey: "dailyGoal") ?? 2000
     
-    return (total, goal)
+    // Check if lastUpdated is today; if not, data is stale → return 0
+    if let lastUpdated = defaults?.object(forKey: "lastUpdated") as? Date,
+       Calendar.current.isDateInToday(lastUpdated) {
+        let total = defaults?.integer(forKey: "todayTotal") ?? 0
+        return (total, goal)
+    }
+    
+    return (0, goal)
 }
 
 /// Saves today's total to shared UserDefaults (called by main app)
